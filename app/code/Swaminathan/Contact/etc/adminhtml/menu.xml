@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+       <add id="Swaminathan_Contact::menu"
+           title="Swaminathan" translate="title" module="Swaminathan_Contact"
+           sortOrder="10"
+           resource="Swaminathan_Contact::menu"
+        />
+        <add id="Swaminathan_Contact::submenu_contact"
+           title="Contact Us" translate="title" module="Swaminathan_Contact"
+           sortOrder="1000" parent="Swaminathan_Contact::menu"
+           action="contact/contact/index"
+           resource="Swaminathan_Contact::submenu_contact"
+        />
+        <add id="Swaminathan_Contact::submenu_contact_config"
+           title="Configuration" translate="title" module="Swaminathan_Contact"
+           sortOrder="1100" parent="Swaminathan_Contact::menu"
+           action="adminhtml/system_config/edit/section/contactus"
+           resource="Swaminathan_Contact::submenu_contact"
+        />
+   </menu>
+</config>

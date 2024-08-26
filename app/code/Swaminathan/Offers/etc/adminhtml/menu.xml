@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Swaminathan_Offers::offers" title="Offers for You" module="Swaminathan_Offers" sortOrder="51" resource="Swaminathan_Offers::offers"/>
+         <add id="Swaminathan_Offers::offersmenu" title="Manage Offers" module="Swaminathan_Offers" sortOrder="10" action="swaminathan_offers/offers" resource="Swaminathan_Offers::offers" parent="Swaminathan_Offers::offers"/>
+           </menu>
+</config>

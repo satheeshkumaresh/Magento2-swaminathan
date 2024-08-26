@@ -1,0 +1,8 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Swaminathan\ProductAlert\Api\ProductAlertManagementInterface" type="Swaminathan\ProductAlert\Model\ProductAlert"/>
+    <preference for="Magento\ProductAlert\Model\Observer" type="Swaminathan\ProductAlert\Model\Observer" />
+     <preference for="Magento\ProductAlert\Block\Product\View" type="Swaminathan\ProductAlert\Block\Product\View" />
+     <preference for="Magento\ProductAlert\Block\Email\Stock" type="Swaminathan\ProductAlert\Block\Email\Stock" />
+      <preference for="Magento\JwtUserToken\Model\Config\ConfigReader" type="Swaminathan\ProductAlert\Model\Config\ConfigReader" />
+       <preference for="Magento\JwtUserToken\Model\Config\JwtAlgorithmSource" type="Swaminathan\ProductAlert\Model\Config\JwtAlgorithmSource" />
+</config>

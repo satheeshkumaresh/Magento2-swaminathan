@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Add product stock alert start-->
+   <route url="/V1/swaminathan/productalertstockadd" method="POST">
+        <service class="Swaminathan\ProductAlert\Api\ProductAlertManagementInterface" method="addProductAlertStock"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Add product stock alert ends-->
+</routes>

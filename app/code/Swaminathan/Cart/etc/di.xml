@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+     <preference for="Magento\Quote\Api\CouponManagementInterface" type="Swaminathan\Cart\Model\CouponManagement" />
+     <preference for="Swaminathan\Cart\Api\CartItemRepositoryInterface" type="Swaminathan\Cart\Model\Quote\Item\Repository" />
+     <preference for="Swaminathan\Cart\Api\GuestCartItemRepositoryInterface" type="Swaminathan\Cart\Model\GuestCart\GuestCartItemRepository" />
+     <preference for="Swaminathan\Cart\Api\GuestCartRepositoryInterface" type="Swaminathan\Cart\Model\GuestCart\GuestCartRepository" />
+     <preference for="Swaminathan\Cart\Api\DeleteAllCart" type="Swaminathan\Cart\Model\DeleteAllCart"/>
+     <preference for="Swaminathan\Cart\Api\UpdateMultipleItems" type="Swaminathan\Cart\Model\UpdateMultipleCartItems"/>
+     <preference for="Swaminathan\Cart\Api\ShippingBillingAddresstInterface" type="Swaminathan\Cart\Model\ShippingBillingAddress" />
+     <preference for="Swaminathan\Cart\Api\IsEmailAvailableInterface" type="Swaminathan\Cart\Model\CheckEmailExist" />
+     <preference for="Swaminathan\Cart\Api\ShippingMethodManagementInterface" type="Swaminathan\Cart\Model\ShippingMethodManagement" />
+     <preference for="Swaminathan\Cart\Api\ShipmentEstimationInterface" type="Swaminathan\Cart\Model\ShippingMethodManagement" />
+     <preference for="Swaminathan\Cart\Api\GuestShippingMethodManagementInterface" type="Swaminathan\Cart\Model\GuestCart\GuestShippingMethodManagement" />
+     <preference for="Swaminathan\Cart\Api\GuestShipmentEstimationInterface" type="Swaminathan\Cart\Model\GuestCart\GuestShippingMethodManagement" />
+     <preference for="Swaminathan\Cart\Api\TotalsInformationManagementInterface" type="Swaminathan\Cart\Model\TotalsInformationManagement" />
+     <preference for="Swaminathan\Cart\Api\GuestTotalsInformationManagementInterface" type="Swaminathan\Cart\Model\GuestTotalsInformationManagement" />
+     <preference for="Swaminathan\Cart\Api\MergeCartInterface" type="Swaminathan\Cart\Model\MergeCart" />
+     <preference for="Swaminathan\Cart\Api\CreateCartInterface" type="Swaminathan\Cart\Model\CreateCart" />
+</config>

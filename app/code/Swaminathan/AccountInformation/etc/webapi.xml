@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/swaminathan/myaccount" method="POST">
+        <service class="Swaminathan\AccountInformation\Api\CustomerAccountInterface" method="saveCustomerAccount"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>  
+    </route> 
+     <route url="/V1/swaminathan/myaccount" method="GET">
+        <service class="Swaminathan\AccountInformation\Api\CustomerAccountInterface" method="getCustomerInformation"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>  
+    </route> 
+     <route url="/V1/swaminathan/myorder" method="POST">
+        <service class="Swaminathan\AccountInformation\Api\MyOrderInterface" method="getMyOrderDetail"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>  
+    </route> 
+    <route url="/V1/swaminathan/recentorder" method="GET">
+        <service class="Swaminathan\AccountInformation\Api\MyOrderInterface" method="getRecentOrderDetail"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>  
+    </route> 
+    <route url="/V1/swaminathan/vieworder/:orderId" method="GET">
+        <service class="Swaminathan\AccountInformation\Api\ViewOrderInterface" method="viewOrder"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route> 
+</routes>

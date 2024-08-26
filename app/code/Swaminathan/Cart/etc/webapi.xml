@@ -1,0 +1,206 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Managing my Cart -->
+    <route url="/V1/swaminathan/carts/mine" method="POST">
+        <service class="Swaminathan\Cart\Api\CreateCartInterface" method="createEmptyCustomerCart"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <!-- Apply Coupon -->
+    <route url="/V1/swaminathan/carts/:cartId/coupons/:couponCode" method="PUT">
+        <service class="Magento\Quote\Api\CouponManagementInterface" method="set"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <!-- Delete Coupon -->
+    <route url="/V1/swaminathan/carts/:cartId/coupons" method="DELETE">
+        <service class="Magento\Quote\Api\CouponManagementInterface" method="remove"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <!-- Managing add to cart by customer-->
+    <route url="/V1/swaminathan/carts/mine/items" method="POST">
+        <service class="Swaminathan\Cart\Api\CartItemRepositoryInterface" method="addToCart"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartItem.quote_id" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <!-- Managing cart list by customer-->
+    <route url="/V1/swaminathan/cartlist" method="GET">
+        <service class="Swaminathan\Cart\Api\CartItemRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <!-- Delete single cart item by customer -->
+    <route url="/V1/swaminathan/carts/mine/items/:itemId" method="DELETE">
+        <service class="Swaminathan\Cart\Api\CartItemRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <!-- Delete all cart items by customer -->
+    <route method="DELETE" url="/V1/swaminathan/deleteallcart/:cartId">
+        <service class="Swaminathan\Cart\Api\DeleteAllCart" method="deleteAllCart"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+    <!-- Update single Cart Items Quantity by customer -->
+    <route url="/V1/swaminathan/carts/mine/items/:itemId" method="PUT">
+        <service class="Swaminathan\Cart\Api\CartItemRepositoryInterface" method="addToCart"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartItem.quote_id" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <!-- Update Quantity by customer -->
+   <route url="/V1/swaminathan/carts/:cartId/items/:itemId" method="PUT">
+        <service class="Swaminathan\Cart\Api\CartItemRepositoryInterface" method="addToCart"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <!-- Update Multiple Cart Items Quantity by customer -->
+    <route method="POST" url="/V1/swaminathan/updatemultiplecartitems">
+        <service class="Swaminathan\Cart\Api\UpdateMultipleItems" method="updateItems"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+    <!-- Managing add to cart by guest user -->
+    <route url="/V1/swaminathan/guest-carts/:cartId/items" method="POST">
+        <service class="Swaminathan\Cart\Api\GuestCartItemRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Managing Cart List by guest user -->
+    <route url="/V1/swaminathan/guest-carts/:cartId" method="GET">
+        <service class="Swaminathan\Cart\Api\GuestCartRepositoryInterface" method="getCartDetails"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Update single cart items by guest user -->
+     <route url="/V1/swaminathan/guest-carts/:cartId/items/:itemId" method="PUT">
+        <service class="Swaminathan\Cart\Api\GuestCartItemRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Delete single cart items by guest user -->
+    <route url="/V1/swaminathan/guest-carts/:cartId/items/:itemId" method="DELETE">
+        <service class="Swaminathan\Cart\Api\GuestCartItemRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Update Multiple Cart Items Quantity by guest user -->
+     <route method="POST" url="/V1/swaminathan/guest-carts/updatemultiplecartitems">
+        <service class="Swaminathan\Cart\Api\UpdateMultipleItems" method="updateItems"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <!-- Delete all cart items by guest user -->
+    <route method="DELETE" url="/V1/swaminathan/guest-carts/deleteallcart/:cartId">
+        <service class="Swaminathan\Cart\Api\GuestCartItemRepositoryInterface" method="deleteAllCartItems"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <!-- Get shipping & billing addresses -->
+    <route url="/V1/swaminathan/getshippingbillingaddress" method="POST">
+        <service class="Swaminathan\Cart\Api\ShippingBillingAddresstInterface" method="getShippingBillingAddress"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Check if the email is exist or not in checkout -->
+    <route url="/V1/swaminathan/isemailavailable" method="POST">
+        <service class="Swaminathan\Cart\Api\IsEmailAvailableInterface" method="emailExistOrNot"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Managing My Cart Shipment Method -->
+    <route url="/V1/swaminathan/carts/mine/shipping-methods" method="GET">
+        <service class="Swaminathan\Cart\Api\ShippingMethodManagementInterface" method="getList"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+     <!-- Managing My Cart Estimate Shipment Method -->
+     <route url="/V1/swaminathan/carts/mine/estimate-shipping-methods" method="POST">
+        <service class="Swaminathan\Cart\Api\ShipmentEstimationInterface" method="estimateByExtendedAddress"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <!-- Managing Guest Cart Shipment Method -->
+    <route url="/V1/swaminathan/guest-carts/:cartId/shipping-methods" method="GET">
+        <service class="Swaminathan\Cart\Api\GuestShippingMethodManagementInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Managing Guest Cart Estimate Shipment Method -->
+    <route url="/V1/swaminathan/guest-carts/:cartId/estimate-shipping-methods" method="POST">
+        <service class="Swaminathan\Cart\Api\GuestShipmentEstimationInterface" method="estimateByExtendedAddress"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Managing totals information for logged in user -->
+    <route url="/V1/swaminathan/carts/:cartId/totals-information" method="POST">
+        <service class="Swaminathan\Cart\Api\TotalsInformationManagementInterface" method="calculate"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+
+    <!-- Managing guest totals information for guest user -->
+    <route url="/V1/swaminathan/guest-carts/:cartId/totals-information" method="POST">
+        <service class="Swaminathan\Cart\Api\GuestTotalsInformationManagementInterface" method="calculate"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Managing totals information for logged in user -->
+    <route url="/V1/swaminathan/merge-carts" method="POST">
+        <service class="Swaminathan\Cart\Api\MergeCartInterface" method="mergeCart"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+     <route url="/V1/swaminathan/wishlist/cart/mine/:wishlistItemId" method="POST">
+        <service class="Swaminathan\Cart\Api\CartItemRepositoryInterface" method="wishlistAddToCart"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartItem.quote_id" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+</routes>

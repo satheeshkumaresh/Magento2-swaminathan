@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sms>
+            <general>
+                <enabled>0</enabled>
+            </general>
+            <apicredential>
+                <senderid>senderid</senderid>
+                <apikey>apikey</apikey>
+                <customurl>https://yoursmsapi.com/sms/submitsms.php</customurl>
+                <apiurl>http://api.msg91.com/api/sendhttp.php</apiurl>
+                <msgtype>4</msgtype>
+                <twiliosid>twiliosid</twiliosid>
+                <twiliotoken>twiliotoken</twiliotoken>
+                <twilionumber>912345678</twilionumber>
+            </apicredential>
+            <order>
+                <smstext><![CDATA[Hi {{first_name}} {{last_name}}, Your order with {{order_id}} has been successfully placed at {{shop_name}}.]]></smstext>
+                <smstextadmin><![CDATA[A new order has been placed at {{shop_name}} with below details: Customer: {{first_name}} {{last_name}} Order ID: {{order_id}} ]]></smstextadmin>
+            </order>
+            <shipment>
+                <smstext><![CDATA[Shipped: Your order with {{order_id}} at {{shop_name}} has been shipped with {{shipment_id}}. It will arrive soon at your doorstep. ]]></smstext>
+                <smstextadmin><![CDATA[Shipped: An order of customer {{first_name}} {{last_name}} with {{order_id}} has been shipped with {{shipment_id}}. ]]></smstextadmin>
+            </shipment>
+        </sms>
+    </default>
+</config>

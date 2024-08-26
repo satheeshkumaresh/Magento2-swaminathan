@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Sparsh\Banner\Block\Banner" type="Swaminathan\SparshBanner\Block\Banner" />
+    <preference for="Sparsh\Banner\Block\Adminhtml\Banner\Edit\Tab\Main" type="Swaminathan\SparshBanner\Block\Adminhtml\Banner\Edit\Tab\Main" />
+    <preference for="Sparsh\Banner\Controller\Adminhtml\Banner\Save" type="Swaminathan\SparshBanner\Controller\Adminhtml\Banner\Save" />
+    <type name="Sparsh\Banner\Controller\Adminhtml\Banner\Save">
+        <plugin name="sparsh_banner" sortOrder="1"
+                type="Swaminathan\SparshBanner\Plugin\SaveBanner" />
+    </type>
+    <preference for="Sparsh\Banner\Model\Banner" type="Swaminathan\SparshBanner\Model\Banner" />
+</config>
+

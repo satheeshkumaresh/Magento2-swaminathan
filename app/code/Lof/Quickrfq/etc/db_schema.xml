@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <!-- Definition of the lof_quickrfq table -->
+    <table name="lof_quickrfq" resource="default" engine="innodb" comment="Lof Quick Request For Quote">
+        <column xsi:type="int" name="quickrfq_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Quickrfq ID"/>
+        <column xsi:type="varchar" name="contact_name" nullable="true" length="255" comment="Contact Name"/>
+        <column xsi:type="varchar" name="phone" nullable="true" length="255" comment="Phone"/>
+        <column xsi:type="varchar" name="email" nullable="true" length="255" comment="Email"/>
+        <column xsi:type="varchar" name="comment" nullable="true" length="255" comment="Comment"/>
+        <column xsi:type="int" name="product_id" nullable="true" padding="10" unsigned="true" comment="Product Id"/>
+        <column xsi:type="int" name="quantity" nullable="true" padding="10" unsigned="true" comment="Quantity Request"/>
+        <column xsi:type="decimal" name="price_per_product" nullable="true" precision="11" scale="4" comment="Price Per Product"/>
+        <column xsi:type="varchar" name="status" nullable="false" length="255" default="New" comment="Status"/>
+        <column xsi:type="int" name="customer_id" nullable="true" padding="10" unsigned="true" comment="Customer Id"/>
+        <column xsi:type="timestamp" name="date_need_quote" nullable="true" comment="Date Need Quote"/>
+        <column xsi:type="timestamp" name="create_date" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" comment="Creation Date"/>
+        <column xsi:type="timestamp" name="update_date" nullable="false" on_update="true" default="CURRENT_TIMESTAMP" comment="Update Date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="quickrfq_id"/>
+        </constraint>
+    </table>
+
+    <!-- Definition of the lof_quickrfq_attachment table -->
+    <table name="lof_quickrfq_attachment" resource="default" engine="innodb" comment="Lof Quick Request For Quote Attachment">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="quickrfq_id" padding="10" unsigned="true" nullable="false" comment="Quote ID"/>
+        <column xsi:type="int" name="message_id" padding="10" unsigned="true" nullable="false" comment="Message ID"/>
+        <column xsi:type="varchar" name="file_name" nullable="true" length="255" comment="File Name"/>
+        <column xsi:type="text" name="file_path" nullable="true" comment="File Path"/>
+        <column xsi:type="varchar" name="file_type" nullable="true" length="32" comment="File Type"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+
+    <!-- Definition of the lof_quickrfq_message table -->
+    <table name="lof_quickrfq_message" resource="default" engine="innodb" comment="Lof Quick Request For Message">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="quickrfq_id" padding="10" unsigned="true" nullable="false" comment="Quote ID"/>
+        <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="false" comment="Customer ID"/>
+        <column xsi:type="text" name="message" nullable="false" comment="Message"/>
+        <column xsi:type="int" name="is_main" padding="10" unsigned="true" nullable="true" comment="Is Main"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FK_LOF_QUICKRFQ_MESSAGE_QUICKRFQ_ID" table="lof_quickrfq_message" column="quickrfq_id" referenceTable="lof_quickrfq" referenceColumn="quickrfq_id" onDelete="CASCADE"/>
+    </table>
+</schema>

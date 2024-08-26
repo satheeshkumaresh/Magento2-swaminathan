@@ -1,0 +1,65 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\ProductAlert\Block\Email\Stock */
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$custom_block = $block->getLayout()->createBlock('Swaminathan\ExternalImage\Block\Product');
+?>
+<?php if ($_products = $block->getProducts()) : ?>
+    <p><?= $block->escapeHtml(__('In stock alert! We wanted you to know that these products are now available:')) ?></p>
+    <table>
+    <?php foreach ($_products as $_product) : ?>
+        <tr>
+            <td class="col photo">
+                <?php 
+                    $productid = $_product->getEntityId(); 
+                    $productDetail = $custom_block->getProductDataUsingId($productid);
+                    $s3image = $productDetail->getData('main_image_s3_url');
+
+                    if($s3image !== null) {
+                        $customproductimage = $s3image;
+                    } else if($_product->getSmallImage() !== null) {
+                        $customproductimage = $_imagehelper->init($_product, 'product_page_image_small')
+                        ->setImageFile($_product->getSmallImage()) // image,small_image,thumbnail
+                        ->resize(380)
+                        ->getUrl();
+                    } else {
+                        $customproductimage = $_imagehelper->getDefaultPlaceholderUrl('image');
+                    }
+                ?>
+                <a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>" title="<?= $block->escapeHtml($_product->getName()) ?>" class="product photo">
+                    <img class="photo image" src="<?php echo $customproductimage;?>" alt="<?php echo $_product->getName(); ?>" style="border: 0; line-height: 100%; outline: none; text-decoration: none;padding-right: 10px" width="120" height="120">
+                </a>
+            </td>
+            <td class="col item">
+                <p>
+                    <strong class="product name">
+                        <a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>"><?= $block->escapeHtml($_product->getName()) ?></a>
+                    </strong>
+                </p>
+                <?php if ($shortDescription = $block->getFilteredContent($_product->getShortDescription())) : ?>
+                    <p><small><?= /* @noEscape */  $shortDescription ?></small></p>
+                <?php endif; ?>
+                <?=
+                $block->getProductPriceHtml(
+                    $_product,
+                    \Magento\Catalog\Pricing\Price\FinalPrice::PRICE_CODE,
+                    \Magento\Framework\Pricing\Render::ZONE_EMAIL,
+                    [
+                        'display_label' => __('Price:')
+                    ]
+                );
+                ?>
+                <p><small><a href="<?= $block->escapeUrl($block->getProductUnsubscribeUrl($_product->getId())) ?>"><?= $block->escapeHtml(__('Click here to stop alerts for this product.')) ?></a></small></p>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </table>
+<p><a href="<?= /* @escapeNotVerified */  $block->getUnsubscribeUrl() ?>"><?= /* @escapeNotVerified */  __('Unsubscribe from all stock alerts') ?></a></p>
+<br>
+<br>
+
+<?php endif; ?>

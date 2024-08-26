@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="registration_customer_registration_notification_email_template" label="Customer Registration Customer Email Temaplate" file="" type="html" module="Swaminathan_Customer" area="frontend"/>
+    <template id="registration_customer_confirmation_notification_email_template" label="Customer Registration Customer Email Temaplate" file="" type="html" module="Swaminathan_Customer" area="frontend"/>
+    <template id="registration_customer_forgot_password_notification_email_template" label="Customer Registration Customer Email Temaplate" file="" type="html" module="Swaminathan_Customer" area="frontend"/>
+</config>

@@ -1,0 +1,69 @@
+<!--
+  ~ Landofcoder
+  ~
+  ~ NOTICE OF LICENSE
+  ~
+  ~ This source file is subject to the Landofcoder.com license that is
+  ~ available through the world-wide-web at this URL:
+  ~ https://landofcoder.com/terms
+  ~
+  ~ DISCLAIMER
+  ~
+  ~ Do not edit or add to this file if you wish to upgrade this extension to newer
+  ~ version in the future.
+  ~
+  ~ @category   Landofcoder
+  ~ @package    Lof_Quickrfq
+  ~ @copyright  Copyright (c) 2021 Landofcoder (https://www.landofcoder.com/)
+  ~ @license    https://landofcoder.com/terms
+  -->
+
+<!--@subject {{trans "You sent a request for quote to %receiver_name" receiver_name=$data.receiver_name}} @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"skin url=\"images/logo_email.gif\" _area='frontend'":"Email Logo Image",
+"var data.customer_name":"Sender Name",
+"var data.email":"Sender Email",
+"var data.phone":"Sender Telephone",
+"var data.overview":"Overview"}
+@-->
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <h1>
+                Request For Quote.
+            </h1>
+
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+             <p>
+                Hello {{var data.customer_name}},
+            </p>
+             <p>
+                Thank you for submitting your quote request for our product(s).
+            </p>
+             <p>
+                We have received your details, Our team will review your request and get back to you as soon as possible.
+            </p>
+             <p>
+                Best regards,
+             </p>
+             <p>
+             <b>Sri Swaminathan & Co</b></br><a href = "www.sriswaminathan.com"> www.sriswaminathan.com</a>
+             <a
+             ></a>
+             </p>
+
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

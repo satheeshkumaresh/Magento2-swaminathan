@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$custom_block = $block->getLayout()->createBlock('Swaminathan\ExternalImage\Block\Product');
+$productid = $block->getItem()->getProductId(); 
+$productDetail = $custom_block->getProductDataUsingId($productid);
+$s3image = $productDetail->getData('main_image_s3_url');
+if($s3image !== null) {
+    $customproductimage = $s3image;
+} else if($productDetail->getSmallImage() !== "no_selection") {
+    $customproductimage = $_imagehelper->init($productDetail, 'product_page_image_small')
+                        ->setImageFile($productDetail->getSmallImage()) // image,small_image,thumbnail
+                        ->resize(380)
+                        ->getUrl();
+} else {
+    $customproductimage = $_imagehelper->getDefaultPlaceholderUrl('image');
+}
+
+?>
+<?php /** @var \MageWorx\OrderEditor\Block\Adminhtml\Sales\Order\Grid\Thumbnail $block */ ?>
+<?php if ($_item = $block->getItem()) : ?>
+        <img src="<?php echo $customproductimage;?>"
+             height="90"
+             alt=""
+             align="left"
+             style="padding-right:2px;" />
+<?php endif; ?>
+

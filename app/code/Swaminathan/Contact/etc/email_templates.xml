@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="contactus_admin_notification_email_template" label="Contact Admin Notification" file="contactus_admin_notification_email.html" type="html" module="Swaminathan_Contact" area="frontend"/>
+    <template id="contactus_customer_notification_email_template" label="Contact Customer Acknowledgement" file="contactus_customer_notification_email.html" type="html" module="Swaminathan_Contact" area="frontend"/>
+</config>

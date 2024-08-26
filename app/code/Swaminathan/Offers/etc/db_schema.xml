@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   <table name="offers_for_you" resource="default" engine="innodb" comment="MD Helloworld">
+      <column xsi:type="int" name="entity_id" padding="7" unsigned="false" nullable="false" identity="true" comment="Entity Id" />
+      <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Title" />
+      <column xsi:type="varchar" name="image" nullable="false" length="255" comment="Image" />
+      <column xsi:type="varchar" name="percentage" nullable="false" length="20" comment="Percentage" />
+      <column xsi:type="datetime" name="valid_from" nullable="false" comment="Valid From" />
+      <column xsi:type="datetime" name="valid_to" nullable="false" comment="Valid To" />
+      <column xsi:type="int" name="limitted_tag" nullable="false" comment="Limitted Tag" />
+      <column xsi:type="int" name="category" nullable="false" comment="Category" />
+      <column xsi:type="int" name="is_active" nullable="false"   comment="Status" />
+      <column xsi:type="timestamp" name="created_at" default="CURRENT_TIMESTAMP" on_update="false" comment="Created at" />
+      <column xsi:type="timestamp" name="update_time" default="CURRENT_TIMESTAMP" on_update="true" comment="Updated at" />
+      <constraint xsi:type="primary" referenceId="PRIMARY">
+         <column name="entity_id" />
+      </constraint>
+   </table>
+</schema>
+
+
+

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+ 
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   <table name="sparsh_banner" resource="default" engine="innodb" comment="Sparsh Banner">
+      <column xsi:type="datetime" name="start_date" nullable="true" comment="Start Date"/>
+      <column xsi:type="datetime" name="end_date" nullable="true" comment="End Date"/>
+      <column xsi:type="varchar" name="banner_image_mobile" nullable="false" length="255" comment="mobile banner Image" />
+      <column xsi:type="varchar" name="title_color" nullable="true" comment="Title Color"/>
+      <column xsi:type="varchar" name="button_color" nullable="true" comment="Button Color"/>
+      <column xsi:type="varchar" name="alt_tag" nullable="true" comment="Alt tag"/>
+      <column xsi:type="smallint" name="visibility" padding="10" nullable="false" default="1" comment="Banner Visibility"/>
+   </table>
+</schema>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Swaminathan\CmsPlpPdp\Api\CmsPlpPdpInterface" type="Swaminathan\CmsPlpPdp\Model\CmsPlpPdp" />
+    <preference for="Magento\Catalog\Controller\Adminhtml\Category\Delete" type="Swaminathan\CmsPlpPdp\Controller\Adminhtml\Category\Delete" />
+    <preference for="Swaminathan\CmsPlpPdp\Api\SearchInterface" type="Swaminathan\CmsPlpPdp\Model\Search" />
+</config>

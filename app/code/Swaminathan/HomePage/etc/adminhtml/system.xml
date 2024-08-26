@@ -1,0 +1,475 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system> 
+        <section id="hompage" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Home Page</label>
+            <tab>swaminathan</tab>
+            <resource>Swaminathan_Customer::helloworld_config</resource>
+
+             <!-- Contact Numbers -->
+            <group id="call_us" translate="label" type="text" sortOrder="10" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>Contact Informations</label>
+ 
+                <field id="mobile" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Mobile</label>
+                </field>
+                <field id="land_line" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Land Line</label>
+                </field>
+                <field id="email_address" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Email Address</label>
+                </field>
+
+            </group> 
+            <!-- mobile Logo -->
+            <group id="mobile_logo" translate="label" type="text" sortOrder="10" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>Mobile Logo</label>
+                <field id="upload_image" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  149 x 37 ]]>
+                    </comment>
+                </field>
+
+            </group> 
+            <!-- Tile 1 -->
+
+            <group id="tile4" translate="label" type="text" sortOrder="20" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>Tile 1</label>
+                <field id="url" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Redirect URL</label>
+                </field> 
+                <field id="open_in_new" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Open In New Tab</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="upload_image" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  432 x 469 ]]>
+                    </comment>
+                </field>
+            </group> 
+            <!-- Tile 2 -->
+            <group id="tile1" translate="label" type="text" sortOrder="20" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Tile 2</label>
+                <field id="title" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="category" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
+                       showInStore="1" canRestore="1">
+                    <label>Category</label>
+                    <source_model>Swaminathan\HomePage\Model\Config\Source\ListMode</source_model>
+                </field>
+                <field id="page_size" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Max. Number of Products</label>
+                </field>
+            </group> 
+            <!-- Tile 3 -->
+
+            <group id="tile5" translate="label" type="text" sortOrder="20" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>Tile 3</label>
+                <field id="title" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="category" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                        showInStore="1" canRestore="1">
+                    <label>Category</label>
+                    <source_model>Swaminathan\HomePage\Model\Config\Source\ListMode</source_model>
+                </field>
+            </group> 
+            <!-- Tile 4 -->
+            <group id="tile6" translate="label" type="text" sortOrder="20" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>Tile 4</label>
+                 
+                <field id="title" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="category" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
+                        showInStore="1" canRestore="1">
+                    <label>Category</label>
+                    <source_model>Swaminathan\HomePage\Model\Config\Source\ListMode</source_model>
+                </field>
+            </group> 
+            
+            <!-- Trending Now -->
+            <group id="trending_now" translate="label" type="text" sortOrder="20" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>Trending Now</label>
+
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="limit" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Max. Number of Products</label>
+                    <comment>
+                    <![CDATA[ Leave this field empty or set 0 for no limit ]]>
+                    </comment>
+                </field>
+            </group> 
+
+            <!-- New Arrival -->
+            <group id="new_arrival" translate="label" type="text" sortOrder="20" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>New Arrival</label>
+
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="limit" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Max. Number of Products</label>
+                    <comment>
+                    <![CDATA[ Leave this field empty or set 0 for no limit ]]>
+                    </comment>
+                </field>
+            </group> 
+ 
+            <!-- Why Chhoose Us -->
+            <group id="why_choose_us" translate="label" type="text" sortOrder="20" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>Why Choose Us</label>
+                <!-- image 1 -->
+                <field id="image1" translate="label comment" type="image" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image 1</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  95 x 95 ]]>
+                    </comment>
+                </field>
+                <!-- hover image 1 -->
+                <field id="hover_image1" translate="label comment" type="image" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hover Image 1</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  95 x 95 ]]>
+                    </comment>
+                </field>
+                <field id="caption1" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Caption 1</label>
+                </field>
+                <!-- image 2 -->
+                 <field id="image2" translate="label comment" type="image" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image 2</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  95 x 95 ]]>
+                    </comment>
+                </field>
+                 <!-- hover image 2 -->
+                 <field id="hover_image2" translate="label comment" type="image" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hover Image 2</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  95 x 95 ]]>
+                    </comment>
+                </field>
+                <field id="caption2" translate="label comment" type="text" sortOrder="20" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Caption 2</label>
+                </field>
+                <!-- image 3 -->
+                 <field id="image3" translate="label comment" type="image" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image 3</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  95 x 95 ]]>
+                    </comment>
+                </field>
+                 <!-- hover image 3 -->
+                 <field id="hover_image3" translate="label comment" type="image" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hover Image 3</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  95 x 95 ]]>
+                    </comment>
+                </field>
+                <field id="caption3" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Caption 3</label>
+                </field>
+                <!-- image 4 -->
+                 <field id="image4" translate="label comment" type="image" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image 4</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  95 x 95 ]]>
+                    </comment>
+                </field>
+                 <!-- hover image 4 -->
+                 <field id="hover_image4" translate="label comment" type="image" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hover Image 4</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  95 x 95 ]]>
+                    </comment>
+                </field>
+                <field id="caption4" translate="label comment" type="text" sortOrder="40" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Caption 4</label>
+                </field>
+                <!-- image 5 -->
+                 <field id="image5" translate="label comment" type="image" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image 5</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  95 x 95 ]]>
+                    </comment>
+                </field>
+                <!-- hover image 5 -->
+                 <field id="hover_image5" translate="label comment" type="image" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hover Image 5</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  95 x 95 ]]>
+                    </comment>
+                </field>
+                <field id="caption5" translate="label comment" type="text" sortOrder="50" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Caption 5</label>
+                </field>
+                <!-- image 6 -->
+                 <field id="image6" translate="label comment" type="image" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image 6</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  95 x 95 ]]>
+                    </comment>
+                </field>
+                <!-- hover image 6 -->
+                 <field id="hover_image6" translate="label comment" type="image" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hover Image 6</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  95 x 95 ]]>
+                    </comment>
+                </field>
+                <field id="caption6" translate="label comment" type="text" sortOrder="60" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Caption 6</label>
+                </field>
+            </group>
+
+            <!-- Overview -->
+            <group id="over_view" translate="label" type="text" sortOrder="20" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>Overview</label>
+                <field id="cms_links" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>CMS Page Links</label>
+                    <comment>
+                        <![CDATA[ Enter the values in the format, Link Title::urlkey; (Eg: About Us::about-us;)<br /> 
+                                  Enter the links in separate lines ]]>
+                    </comment>
+                </field>
+            </group> 
+
+            <!-- Shop Now -->
+            <group id="shop_now" translate="label" type="text" sortOrder="20" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>Shop Now</label>
+                <field id="title1" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title 1</label>
+                </field>
+                <field id="url1" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>URL 1</label>
+                </field>
+                <field id="title2" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title 2</label>
+                </field>
+                <field id="url2" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>URL 2</label>
+                </field>
+                <field id="title3" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title 3</label>
+                </field>
+                <field id="url3" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>URL 3</label>
+                </field>
+                <field id="title4" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title 4</label>
+                </field>
+                <field id="url4" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>URL 4</label>
+                </field>
+                <field id="title5" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title 5</label>
+                </field>
+                <field id="url5" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>URL 5</label>
+                </field>
+            </group> 
+
+            <!-- Payment Methods  -->
+            <group id="payment_methods" translate="label" type="text" sortOrder="20" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>Payment Methods</label>
+                <field id="title" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="image" translate="label comment" type="image" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment Gateway Image</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  265 x 115 ]]>
+                    </comment>
+                </field>
+            </group> 
+
+            <!-- Follow Us  -->
+            <group id="follow_us" translate="label" type="text" sortOrder="20" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>Follow Us</label>
+                <field id="twitter_title" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="twitter" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Twitter URL</label>
+                </field>
+                <field id="twitter_header_image" translate="label comment" type="image" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Twitter Image</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  48 x 48 ]]>
+                    </comment>
+                </field>
+                <field id="twitter_footer_image" translate="label comment" type="image" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer Twitter Image</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  48 x 48 ]]>
+                    </comment>
+                </field>
+                <field id="facebook_title" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="facebook" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Facebook URL</label>
+                </field>
+                <field id="facebook_header_image" translate="label comment" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook Image</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  48 x 48 ]]>
+                    </comment>
+                </field>
+                <field id="facebook_footer_image" translate="label comment" type="image" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer Facebook Image</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  48 x 48 ]]>
+                    </comment>
+                </field>
+                <field id="instagram_title" translate="label comment" type="text" sortOrder="50" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="instagram" translate="label comment" type="text" sortOrder="50" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Instagram URL</label>
+                </field>
+                <field id="instagram_header_image" translate="label comment" type="image" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Instagram Image</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  48 x 48 ]]>
+                    </comment>
+                </field>
+                <field id="instagram_footer_image" translate="label comment" type="image" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer Instagram Image</label>
+                    <backend_model>Swaminathan\HomePage\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">homepage</base_url>
+                    <comment>
+                    <![CDATA[ Recommended Image Resolution :  48 x 48 ]]>
+                    </comment>
+                </field>
+            </group> 
+            <group id="seo" translate="label" type="text" sortOrder="10" showInDefault="1"
+                showInWebsite="1" showInStore="1">
+                <label>Search Engine Optimization</label>
+                   <field id="meta_title" translate="label comment" type="text" sortOrder="80" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Meta Title</label>
+                    </field> 
+                    <field id="meta_keywords" translate="label comment" type="textarea" sortOrder="80" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Meta Keywords</label>
+                    </field> 
+                    <field id="meta_description" translate="label comment" type="textarea" sortOrder="80" showInDefault="1"
+                        showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Meta Description</label>
+                    </field> 
+            </group>
+        </section>
+    </system>
+</config>
+ 
+
+ 

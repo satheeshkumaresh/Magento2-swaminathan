@@ -1,0 +1,177 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Managing shipping guest information -->
+    <route url="/V1/swaminathan/guest-carts/:cartId/shipping-information" method="POST">
+        <service class="Swaminathan\Checkout\Api\GuestShippingInformationManagementInterface" method="saveAddressInformation"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Managing My shipping information -->
+    <route url="/V1/swaminathan/carts/mine/shipping-information" method="POST">
+        <service class="Swaminathan\Checkout\Api\ShippingInformationManagementInterface" method="saveAddressInformation"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <!-- Managing payment guest information -->
+    <route url="/V1/swaminathan/guest-carts/:cartId/set-payment-information" method="POST">
+        <service class="Swaminathan\Checkout\Api\GuestPaymentInformationManagementInterface" method="savePaymentInformation"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- End Managing payment guest information -->
+    <!-- Managing My payment information -->
+    <route url="/V1/swaminathan/carts/mine/set-payment-information" method="POST">
+        <service class="Swaminathan\Checkout\Api\PaymentInformationManagementInterface" method="savePaymentInformation"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+     <!-- Get payment information -->
+    <route url="/V1/swaminathan/carts/mine/payment-information" method="GET">
+        <service class="Swaminathan\Checkout\Api\PaymentInformationManagementInterface" method="getPaymentInformation"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <!-- Managing Guest Cart Billing address -->
+     <route url="/V1/swaminathan/guest-carts/:cartId/billing-address" method="POST">
+        <service class="Swaminathan\Checkout\Api\GuestBillingAddressManagementInterface" method="assign"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Managing Guest Cart Billing address -->
+    <route url="/V1/swaminathan/guest-carts/:cartId/billing-address" method="GET">
+        <service class="Swaminathan\Checkout\Api\GuestBillingAddressManagementInterface" method="get"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+     <!-- End Managing Guest Cart Billing address -->
+    <!-- Guest place order with payment information saving -->
+    <route url="/V1/swaminathan/guest-carts/:cartId/payment-information" method="GET">
+        <service class="Swaminathan\Checkout\Api\GuestPaymentInformationManagementInterface" method="getPaymentInformation"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+     <!-- End Guest place order with payment information saving -->
+   <route url="/V1/swaminathan/carts/mine/billing-address" method="POST">
+        <service class="Swaminathan\Checkout\Api\BillingAddressManagementInterface" method="assign"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <!-- Managing My Cart Billing address -->
+    <route url="/V1/swaminathan/carts/mine/billing-address" method="GET">
+        <service class="Swaminathan\Checkout\Api\BillingAddressManagementInterface" method="get"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <!-- Managing Guest Cart Total -->
+    <route url="/V1/swaminathan/guest-carts/:cartId/totals" method="GET">
+        <service class="Swaminathan\Checkout\Api\GuestCartTotalRepositoryInterface" method="get"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- End Managing Guest Cart Total -->
+    <!-- Managing My Cart Total -->
+    <route url="/V1/swaminathan/carts/mine/totals" method="GET">
+        <service class="Swaminathan\Checkout\Api\CartTotalRepositoryInterface" method="get"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <!-- My place order with payment information saving -->
+    <route url="/V1/swaminathan/carts/mine/payment-information" method="POST">
+        <service class="Swaminathan\Checkout\Api\PaymentInformationManagementInterface" method="savePaymentInformationAndPlaceOrder"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <!-- Guest place order with payment information saving -->
+    <route url="/V1/swaminathan/guest-carts/:cartId/payment-information" method="POST">
+        <service class="Swaminathan\Checkout\Api\GuestPaymentInformationManagementInterface" method="savePaymentInformationAndPlaceOrder"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Set razorpayment for logged in user -->
+    <route url="/V1/swaminathan/carts/rzp-payment-details" method="POST">
+        <service class="Swaminathan\Checkout\Api\RzpPaymentDetailsInterface" method="setRzpPaymentDetailsForOrder"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <!-- Set razorpayment for guest user -->
+    <route url="/V1/swaminathan/guest-carts/rzp-payment-details" method="POST">
+        <service class="Swaminathan\Checkout\Api\RzpPaymentDetailsInterface" method="setGuestRzpPaymentDetailsForOrder"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- place Razor pay Order for logged in user -->
+    <route url="/V1/swaminathan/carts/placerazorpayorder" method="POST">
+        <service class="Swaminathan\Checkout\Api\PlaceRazorpayOrderInterface" method="placeRazorpayOrder"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <!-- place Razor pay Order for guest user -->
+    <route url="/V1/swaminathan/guest-carts/placerazorpayorder" method="POST">
+        <service class="Swaminathan\Checkout\Api\PlaceRazorpayOrderInterface" method="placeGuestRazorpayOrder"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+     <!-- Reset Cart for logged in user -->
+    <route url="/V1/swaminathan/carts/resetcart" method="POST">
+        <service class="Swaminathan\Checkout\Api\ResetCartInterface" method="resetCart"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <!-- Reset Cart for guest user -->
+    <route url="/V1/swaminathan/guest-carts/resetcart" method="POST">
+        <service class="Swaminathan\Checkout\Api\ResetCartInterface" method="resetCart"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <!-- Esimate shipping methods by address id -->
+    <route url="/V1/carts/mine/estimate-shipping-methods-by-address-id" method="POST">
+        <service class="Swaminathan\Cart\Api\ShippingMethodManagementInterface" method="estimateByAddressId"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+</routes>

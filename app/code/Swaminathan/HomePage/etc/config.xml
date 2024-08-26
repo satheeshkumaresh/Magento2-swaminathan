@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+     <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+        <default>
+            <hompage>
+                <tile1>
+                    <title>Traditional Diyas</title>
+                </tile1>
+                <tile7>
+                    <category>6</category>
+                </tile7>
+                <tile2>
+                    <title>Idols</title>
+                </tile2>
+                <tile3>
+                    <title>Home Decors</title>
+                </tile3>
+                <tile5>
+                    <title>Shop By Categories</title>
+                </tile5>
+                <tile6>
+                    <title>Pooja Essentials</title>
+                </tile6>
+                <tile7>
+                    <title>Copper Items</title>
+                </tile7>
+                <tile8>
+                    <title>Vintage Items</title>
+                </tile8>
+                <trending_now>
+                    <title>Trending Now</title>
+                </trending_now>
+            </hompage>
+        </default>
+    </config>

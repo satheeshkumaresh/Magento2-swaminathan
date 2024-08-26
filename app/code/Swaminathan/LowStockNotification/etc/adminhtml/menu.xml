@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Swaminathan_LowStockNotification::submenu_contact_config"
+           title="Admin Low Stock Notification" translate="title" module="Swaminathan_LowStockNotification"
+           sortOrder="1100" parent="Swaminathan_Contact::menu"
+          action="adminhtml/system_config/edit/section/lowstocknotification"
+           resource="Swaminathan_LowStockNotification::submenu_lowstock"
+        />
+   </menu>
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/swaminathan/cmsplppdp" method="POST">
+        <service class="Swaminathan\CmsPlpPdp\Api\CmsPlpPdpInterface" method="getContent" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/swaminathan/searchResult" method="POST">
+        <service class="Swaminathan\CmsPlpPdp\Api\SearchInterface" method="getSearchResult" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/swaminathan/searchSuggestion" method="POST">
+        <service class="Swaminathan\CmsPlpPdp\Api\SearchInterface" method="getSearchSuggestion" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+</routes>

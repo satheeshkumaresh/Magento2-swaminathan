@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_onepage_controller_success_action">
+        <observer name="Swaminathan_sms_place_order_after" instance="Swaminathan\Sms\Observer\Orderplaceafter" />
+    </event>
+    <event name="sales_order_shipment_save_after">
+        <observer name="Swaminathan_sms_shipment" instance="Swaminathan\Sms\Observer\Shipment" />
+    </event>
+</config>

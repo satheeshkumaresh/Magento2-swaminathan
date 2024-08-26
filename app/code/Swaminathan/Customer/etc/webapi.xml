@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/swaminathan/customer/create" method="POST">
+        <service class="Swaminathan\Customer\Api\RegistrationInterface" method="createCustomer" />
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/swaminathan/sendConfirmationLink" method="POST">
+        <service class="Swaminathan\Customer\Api\RegistrationInterface" method="sendAccountConfirmationEmail"/>
+        <resources>
+        <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/swaminathan/logincustomer" method="POST">
+        <service class="Swaminathan\Customer\Api\RegistrationInterface" method="loginCustomer"/>
+        <resources>
+        <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/swaminathan/forgotpassword" method="POST">
+        <service class="Swaminathan\Customer\Api\RegistrationInterface" method="forgotPassword"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+     <route url="/V1/swaminathan/confirm/email" method="POST">
+        <service class="Swaminathan\Customer\Api\RegistrationInterface" method="confirmEmail"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/swaminathan/reset/password" method="POST">
+        <service class="Swaminathan\Customer\Api\RegistrationInterface" method="resetPassword"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/swaminathan/reset/getgooglelink" method="GET">
+        <service class="Swaminathan\Customer\Api\RegistrationInterface" method="getGoogleSignInLink"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/integration/customer/revoke/:customerId" method="POST">
+        <service class="Swaminathan\Customer\Api\CustomerRevokeTokenServiceInterface" method="revokeCustomerAccessToken"/>
+        <resources>
+            <resource ref="self"/>
+        </resources> 
+    </route>
+    <route url="/V1/swaminathan/delete/:addressId" method="DELETE">
+        <service class="Swaminathan\Customer\Api\DeleteCustomerAddressInterface" method="deleteCustomerAddressById"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>  
+    </route> 
+  <route url="/V1/swaminathan/address" method="POST">
+        <service class="Swaminathan\Customer\Api\CustomerAddressInterface" method="saveCustomerAddress"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>  
+    </route>
+    <route url="/V1/swaminathan/alladdress" method="POST">
+        <service class="Swaminathan\Customer\Api\CustomerAddressInterface" method="getCustomerAddress"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>  
+    </route>
+    <route url="/V1/swaminathan/country" method="GET">
+        <service class="Swaminathan\Customer\Api\CustomerAddressInterface" method="getCountryList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>  
+    </route>
+    <route url="/V1/swaminathan/state/:countryCode" method="GET">
+        <service class="Swaminathan\Customer\Api\CustomerAddressInterface" method="getStateList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>  
+    </route>
+    <route url="/V1/swaminathan/updateaddress" method="POST">
+        <service class="Swaminathan\Customer\Api\CustomerAddressInterface" method="updateCustomerAddress"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>  
+    </route>
+    <route url="/V1/swaminathan/address/:addressId" method="DELETE">
+        <service class="Swaminathan\Customer\Api\CustomerAddressInterface" method="deleteCustomerAddress"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>  
+    </route>
+     <route url="/V1/swaminathan/address/:addressId" method="GET">
+        <service class="Swaminathan\Customer\Api\CustomerAddressInterface" method="customerEditAddress"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>  
+    </route>
+     <route url="/V1/swaminathan/sameasbillingshippingaddress/:addressId" method="POST">
+        <service class="Swaminathan\Customer\Api\CustomerAddressInterface" method="sameAsBillingShippingAddress"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>  
+    </route>
+    <route url="/V1/customertoken/:customerId" method="POST">
+        <service class="Swaminathan\Customer\Api\CustomerTokenInterface" method="customerToken"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route> 
+</routes>

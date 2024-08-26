@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="Swaminathan" translate="label" class="Swaminathan" sortOrder="100">
+            <label>swaminathan</label>
+        </tab>
+        <section id="sms" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>SMS Notification</label>
+            <tab>swaminathan</tab>
+            <resource>Swaminathan_Sms::sms</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>SMS Notification</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="mobilenumber" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Admin Mobile Number</label>
+                    <comment><![CDATA[Enter mobile number followed by country code without + sign.If you want to add multiple admin mobile number than separate by ,(comma) For ex: 911122,912233]]></comment>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="apicredential" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>API Settings</label>
+                <field id="apiprovider" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>API Provider</label>
+                    <source_model>Swaminathan\Sms\Model\Config\Source\Apiprovider</source_model>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="customurl" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>CURL URL</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="apiprovider">other</field>
+                    </depends>
+                    <comment> <![CDATA[Add your SMS API CURL URL and use {mobile} and {msg} variables to pass the values of mobile number and message fields. For example, https://yoursmsapi.com/sms/submitsms.jsp?user=yourusername&senderid=yoursenderid&key=yoursmskey&mobile={mobile}&message={msg}]]> </comment>
+                </field>
+                <field id="senderid" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sender ID</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="apiprovider" separator="|">msg|textlocal</field>
+                    </depends>
+                </field>
+                <field id="apikey" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Key</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="apiprovider" separator="|">msg|textlocal</field>
+                    </depends>
+                </field>
+                <field id="apiurl" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API URL</label>
+                    <validate>required-entry</validate>
+                    <comment> <![CDATA[Msg91 URL is http://api.msg91.com/api/sendhttp.php. <br> Text Local URL is https://api.textlocal.in/send/.]]> </comment>
+                    <depends>
+                        <field id="apiprovider" separator="|">msg|textlocal</field>
+                    </depends>
+                </field>
+                <field id="msgtype" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Message Type</label>
+                    <source_model>Swaminathan\Sms\Model\Config\Source\Msgtype</source_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="apiprovider">msg</field>
+                    </depends>
+                </field>
+                <field id="twiliosid" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Twilio SID</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="apiprovider" separator="|">twilio|twiliowhatsapp</field>
+                    </depends>
+                </field>
+                <field id="twiliotoken" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Twilio Token</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="apiprovider" separator="|">twilio|twiliowhatsapp</field>
+                    </depends>
+                </field>
+                <field id="twilionumber" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Twilio Number</label>
+                    <validate>required-entry</validate>
+                    <comment> <![CDATA[Enter Twilio Number without + sign .]]> </comment>
+                    <depends>
+                        <field id="apiprovider" separator="|">twilio|twiliowhatsapp</field>
+                    </depends>
+                </field>
+                <field id="username" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Username</label>
+                    <depends>
+                        <field id="apiprovider" separator="|">bulksms</field>
+                    </depends>
+                </field>
+                <field id="password" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Password</label>
+                    <depends>
+                        <field id="apiprovider" separator="|">bulksms</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="order" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Order Placement Notification Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order Placement Notification</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="smstext" translate="label" type="textarea" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>SMS Text for Customers</label>
+                    <comment> <![CDATA[You can make use of {{shop_name}},{{shop_url}},{{first_name}},{{last_name}},{{order_id}},{{order_total}} variables in your SMS  text.]]> </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="templateid" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Order Placement Template ID</label>
+                    <depends>
+                        <field id="sms/apicredential/apiprovider">msg</field>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="msgtoadmin" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order Placement Notification to Admin</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="smstextadmin" translate="label" type="textarea" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>SMS Text for Admin</label>
+                    <comment> <![CDATA[You can make use of {{shop_name}},{{shop_url}},{{first_name}},{{last_name}},{{order_id}},{{order_total}} variables in your SMS  text.]]> </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="msgtoadmin">1</field>
+                    </depends>
+                </field>
+                <field id="templateidadmin" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Order Placement Template ID for Admin</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="sms/apicredential/apiprovider">msg</field>
+                        <field id="msgtoadmin">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+            <group id="shipment" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Order Shipment Notification Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order Shipment Notification</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="smstext" translate="label" type="textarea" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>SMS Text for Customers</label>
+                    <comment><![CDATA[You can make use of {{shop_name}},{{shop_url}},{{first_name}},{{last_name}},{{order_id}},{{shipment_id}},{{track_no}},{{carrier_name}} variables in your SMS  text.]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="templateid" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Order Shipment Template ID</label>
+                    <depends>
+                        <field id="sms/apicredential/apiprovider">msg</field>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="msgtoadmin" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order Shipment Notification to Admin</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="smstextadmin" translate="label" type="textarea" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>SMS Text for Admin</label>
+                    <comment><![CDATA[You can make use of {{shop_name}},{{shop_url}},{{first_name}},{{last_name}},{{order_id}},{{shipment_id}},{{track_no}},{{carrier_name}} variables in your SMS  text.]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="msgtoadmin">1</field>
+                    </depends>
+                </field>
+                <field id="templateidadmin" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Order Shipment Template ID for Admin</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="sms/apicredential/apiprovider">msg</field>
+                        <field id="msgtoadmin">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

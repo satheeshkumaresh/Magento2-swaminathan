@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="sales" translate="label" type="text">
+            <group id="maximum_order" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Maximum Order Amount</label>
+                <field id="active" translate="label" sortOrder="5" type="select" showInDefault="1" showInWebsite="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="amount" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1">
+                    <label>Maximum Amount</label>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                </field>
+                <field id="error_message" translate="label" sortOrder="30" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Error to Show in Shopping Cart</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

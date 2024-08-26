@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+  <preference for="Swaminathan\Wishlist\Api\WishlistRepositoryInterface"
+              type="Swaminathan\Wishlist\Model\WishlistRepository"/>
+  <preference for="Swaminathan\Wishlist\Api\WishlistInterface"
+              type="Swaminathan\Wishlist\Model\Wishlist"/>
+  <preference for="Swaminathan\Wishlist\Api\ItemInterface"
+              type="Swaminathan\Wishlist\Model\Item"/>
+  <preference for="Swaminathan\Wishlist\Api\WishlistManagementInterface" type="Swaminathan\Wishlist\Model\WishlistManagement" />
+  <preference for="Swaminathan\Wishlist\Api\UpdateWishlistInterface" type="Swaminathan\Wishlist\Model\UpdateWishlist" />
+  <preference for="Swaminathan\Wishlist\Api\GetWishlistInterface" type="Swaminathan\Wishlist\Model\GetWishlist" />
+  <preference for="Swaminathan\Wishlist\Api\AddAllToCartInterface" type="Swaminathan\Wishlist\Model\AddAllToCart" />
+</config>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Swaminathan\Checkout\Model\ShippingInformationManagementInterface" type="Swaminathan\Checkout\Model\ShippingInformationManagement" />
+    <preference for="Swaminathan\Checkout\Api\PaymentInformationManagementInterface" type="Swaminathan\Checkout\Model\PaymentInformationManagement" />
+    <preference for="Swaminathan\Checkout\Api\GuestPaymentInformationManagementInterface" type="Swaminathan\Checkout\Model\GuestPaymentInformationManagement" />
+    <preference for="Swaminathan\Checkout\Api\RzpPaymentDetailsInterface" type="Swaminathan\Checkout\Model\RzpPaymentDetails" />
+    <preference for="Swaminathan\Checkout\Api\PlaceRazorpayOrderInterface" type="Swaminathan\Checkout\Model\PlaceRazorpayOrder" />
+    <preference for="Swaminathan\Checkout\Api\ResetCartInterface" type="Swaminathan\Checkout\Model\ResetCart" />
+    <preference for="Swaminathan\Checkout\Api\GuestShippingInformationManagementInterface" type="Swaminathan\Checkout\Model\GuestShippingInformationManagement" />
+    <preference for="Swaminathan\Checkout\Api\ShippingInformationManagementInterface" type="Swaminathan\Checkout\Model\ShippingInformationManagement" />
+    <preference for="Swaminathan\Checkout\Api\GuestCartTotalRepositoryInterface" type="Swaminathan\Checkout\Model\GuestCartTotalRepository" />
+    <preference for="Swaminathan\Checkout\Api\CartTotalRepositoryInterface" type="Swaminathan\Checkout\Model\CartTotalRepository" />
+    <preference for="Swaminathan\Checkout\Api\GuestBillingAddressManagementInterface" type="Swaminathan\Checkout\Model\GuestBillingAddressManagement" />
+    <preference for="Swaminathan\Checkout\Api\BillingAddressManagementInterface" type="Swaminathan\Checkout\Model\BillingAddressManagement" />
+    <preference for="Swaminathan\Checkout\Api\AddressInterface" type="Swaminathan\Checkout\Model\Address" />
+    <preference for="Swaminathan\Checkout\Api\Data\ShippingInformationInterface" type="Swaminathan\Checkout\Model\ShippingInformation" />
+    <preference for="Swaminathan\Checkout\Api\CartManagementInterface" type="Swaminathan\Checkout\Model\QuoteManagement" />
+    <preference for="Swaminathan\Checkout\Api\GuestCartManagementInterface" type="Swaminathan\Checkout\Model\GuestCart\GuestCartManagement" />
+    <preference for="Magento\Checkout\Model\PaymentInformationManagement" type="Swaminathan\Checkout\Model\PlaceOrder" />
+    <preference for="Magento\Checkout\Model\GuestPaymentInformationManagement" type="Swaminathan\Checkout\Model\GuestPlaceOrder" />
+</config>

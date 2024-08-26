@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+@copyright: Copyright © 2017 mediaman GmbH. All rights reserved.
+@see LICENSE.txt
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+     <preference for="Swaminathan\AccountInformation\Api\CustomerAccountInterface" type="Swaminathan\AccountInformation\Model\CustomerAccount" />
+     <preference for="Swaminathan\AccountInformation\Api\MyOrderInterface" type="Swaminathan\AccountInformation\Model\MyOrder" />
+     <preference for="Swaminathan\AccountInformation\Api\ViewOrderInterface" type="Swaminathan\AccountInformation\Model\ViewOrder"/>
+</config>

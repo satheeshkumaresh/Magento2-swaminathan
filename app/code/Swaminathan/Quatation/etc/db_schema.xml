@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="swaminathan_quatation" resource="default" engine="innodb" comment="swaminathan_contactus">
+        <column xsi:type="int" name="id" padding="6" unsigned="false" nullable="false" identity="true" comment="ID" />
+        <column xsi:type="varchar" name="customer_id" nullable="false" length="50" comment="Customerid" />
+        <column xsi:type="varchar" name="quote_id" nullable="false" length="50" comment="Quoteid" />
+        <column xsi:type="varchar" name="productid" nullable="false" length="256" comment="ProductId" />
+        <column xsi:type="varchar" name="productname" nullable="false" length="256" comment="ProductName" />
+        <column xsi:type="varchar" name="sku" nullable="false" length="50" comment="sku" />
+        <column xsi:type="varchar" name="qty" nullable="false" length="256" comment="quantity"  />
+        <column xsi:type="varchar" name="price" nullable="false" comment="price"  />
+        <column xsi:type="varchar" name="total_price" nullable="false" comment="totalPrice"  />
+        <column xsi:type="varchar" name="is_active" nullable="false" default="1"  length="50" comment="isActive" />
+        <column name="createdon" nullable="false" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="false"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+    </table>
+    <table name="lof_quickrfq" >
+         <column xsi:type="varchar" name="quote_id" nullable="false" length="50" comment="Quoteid" />
+         <column xsi:type="varchar" name="quote_submitted" nullable="false" default="0" length="50" comment="quoteSubmitted" />
+    </table>
+</schema>

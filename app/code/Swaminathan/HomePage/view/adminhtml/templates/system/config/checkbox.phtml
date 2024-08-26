@@ -1,0 +1,18 @@
+<input type="hidden" name="<?php echo $this->getNamePrefix() ?>" value="" /><!-- this is send if nothing is checked -->
+<ul class="checkboxes">
+    
+<?php
+echo $this->getIsChecked();
+$checked = ($this->getIsChecked()) ? ' checked' : '';
+$value = ($this->getIsChecked()) ? 0 : 1;
+?>
+        <li>
+            <input type="checkbox" value="<?= $value ?>" name="groups[tile4][fields][open_in_new][value]" id="homepage_tile4_open_in_new"
+            <?= $checked?>
+            />
+             
+             
+             
+        </li>
+    
+</ul>

@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/swaminathan/quatation/add" method="POST">
+        <service class="Swaminathan\Quatation\Api\QuatationInterface" method="addQuatation"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route> 
+    <route url="/V1/swaminathan/quatation/getAll/:quoteId" method="GET">
+        <service class="Swaminathan\Quatation\Api\QuatationInterface" method="getQuoteInformation"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route> 
+     <route url="/V1/swaminathan/quatation/deleteAll/:quoteId" method="DELETE">
+        <service class="Swaminathan\Quatation\Api\QuatationInterface" method="deleteAll"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route> 
+     <route url="/V1/swaminathan/quatation/delete/:id" method="DELETE">
+        <service class="Swaminathan\Quatation\Api\QuatationInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route> 
+       <route url="/V1/swaminathan/quatation/update/:id" method="POST">
+        <service class="Swaminathan\Quatation\Api\QuatationInterface" method="update"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/swaminathan/quatation/submit" method="POST">
+        <service class="Swaminathan\Quatation\Api\QuatationInterface" method="submit"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

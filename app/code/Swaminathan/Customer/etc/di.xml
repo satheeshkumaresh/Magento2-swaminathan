@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Swaminathan\Customer\Api\RegistrationInterface" type="Swaminathan\Customer\Model\Registration" />
+    <preference for="MiniOrange\MagentoSocialLogin\Controller\Actions\CustomerLoginAction" type="Swaminathan\Customer\Controller\Actions\CustomerLoginAction" />
+    <preference for="Swaminathan\Customer\Api\CustomerRevokeTokenServiceInterface" type="Swaminathan\Customer\Model\CustomerRevokeTokenService"/>
+    <preference for="Swaminathan\Customer\Api\DeleteCustomerAddressInterface" type="Swaminathan\Customer\Model\DeleteCustomerAddress" />
+    <preference for="Swaminathan\Customer\Api\CustomerAddressInterface" type="Swaminathan\Customer\Model\CustomerAddress" />
+    <preference for="Swaminathan\Customer\Api\CustomerTokenInterface" type="Swaminathan\Customer\Model\CustomerToken"/>
+</config>

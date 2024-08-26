@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Swaminathan\Reorder\Api\ReorderRepositoryInterface" type="Swaminathan\Reorder\Model\ReorderRepository" />
+    <preference for="Swaminathan\Reorder\Api\Data\ApiResponseDataInterface" type="Swaminathan\Reorder\Model\ApiResponseMessage" />
+    <preference for="Swaminathan\Reorder\Api\ReorderInterface" type="Swaminathan\Reorder\Model\Reorder" />
+</config>

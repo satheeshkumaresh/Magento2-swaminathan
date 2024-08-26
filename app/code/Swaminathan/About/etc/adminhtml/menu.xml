@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+      <add id="Swaminathan_About::submenu_contact_config"
+           title="About Us" translate="title" module="Swaminathan_About"
+           sortOrder="1100" parent="Swaminathan_Contact::menu"
+           action="swaminathan_about/items/"
+           resource="Swaminathan_About::submenu_about"
+      />
+   </menu>
+</config>
